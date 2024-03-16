@@ -3,6 +3,8 @@ import ContentTimer from '../ContentTimer'
 import KeyEvents from "../KeyEvents";
 import TaskExamples from "../TaskExamples";
 import Prizes from "../Prizes";
+import OrgCarousel from "../OrgCarousel";
+import EventInfo from "../EventInfo";
 
 const contentStyle = {
   minHeight: "calc(100vh - 60px - 60px)",
@@ -19,9 +21,11 @@ export default function AppContent() {
         <ContentTimer />
       </div>
       <Divider style={{ backgroundColor: 'white', minWidth: '80%', width: '80%', display: 'flex', justifyContent: 'center', marginLeft: '10%' }} />
+      <EventInfo />
       <KeyEvents />
       <TaskExamples />
       <Prizes />
+      <OrgCarousel />
     </Layout.Content>
   );
 }

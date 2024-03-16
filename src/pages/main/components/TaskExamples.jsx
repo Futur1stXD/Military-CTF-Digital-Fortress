@@ -32,7 +32,7 @@ export default function TaskExamples() {
                     {cards.map(card => (
                         <Card title={card.title} bordered={false} key={card.title} style={{ width: '80%' }} extra={<Button type='primary' style={{ width: 110 }}>Открыть<FilePdfOutlined /></Button>}>
                             <Flex vertical align='flex-end' gap={25}>
-                                <Flex horizontal justify='space-evenly' gap={10}>
+                                <Flex justify='space-evenly' gap={10}>
                                     <img src={card.imgUrl} alt={card.title} style={{ width: '20%'}} />
                                     <Typography.Text>{card.description}</Typography.Text>
                                 </Flex>

@@ -32,7 +32,9 @@ export default function AppHeader() {
 
   return (
     <Layout.Header style={headerStyle}>
-      <div className="header-title">Military CTF</div>
+      <div className="header-title">
+        Military CTF
+      </div>
       <Flex gap="large" style={{ alignItems: "center" }}>
         {headerList.map((item) => (
           <Typography.Text className="header-list" key={item.id}>{item.title}</Typography.Text>
@@ -46,12 +48,14 @@ export default function AppHeader() {
           </div>
         </Dropdown> : <div className="header-button">
           <Space>
-            <UserOutlined />
-            <a href="/login" style={{ color: 'white' }}>Войти</a>
+            <a href="/login" style={{ color: 'white' }}>
+              <UserOutlined style={{ paddingRight: 5 }} />
+              Войти
+            </a>
           </Space>
         </div>
         }
       </Flex>
-    </Layout.Header>
+    </Layout.Header >
   );
 }
