@@ -1,11 +1,8 @@
 import { Card, Typography, Flex, Button } from 'antd'
 import { FilePdfOutlined } from '@ant-design/icons';
-import { useMediaQuery } from "@uidotdev/usehooks";
 
 
-export default function TaskExamples() {
-    const isPhone = useMediaQuery("only screen and (max-width : 768px)");
-
+export default function TaskExamples({isPhone}) {
     let cards = [
         {
             title: "Reverse Engineering",

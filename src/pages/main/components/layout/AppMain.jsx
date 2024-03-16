@@ -4,12 +4,12 @@ import AppHeader from "./AppHeader";
 import AppContent from "./AppContent";
 import AppFooter from "./AppFooter";
 
-export default function AppMain() {
+export default function AppMain({isPhone}) {
   return (
     <Layout>
       <AppHeader />
       <Layout>
-        <AppContent />
+        <AppContent isPhone={isPhone} />
       </Layout>
       <Layout>
         <AppFooter />

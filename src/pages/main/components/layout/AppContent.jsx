@@ -13,7 +13,7 @@ const contentStyle = {
   textColor: "white",
 };
 
-export default function AppContent() {
+export default function AppContent({isPhone}) {
   return (
     <Layout.Content style={contentStyle}>
       <div className="content-flag-container">
@@ -21,9 +21,9 @@ export default function AppContent() {
         <ContentTimer />
       </div>
       <Divider style={{ backgroundColor: 'white', minWidth: '80%', width: '80%', display: 'flex', justifyContent: 'center', marginLeft: '10%' }} />
-      <EventInfo />
+      <EventInfo isPhone={isPhone} />
       <KeyEvents />
-      <TaskExamples />
+      <TaskExamples isPhone={isPhone} />
       <Prizes />
       <OrgCarousel />
     </Layout.Content>
