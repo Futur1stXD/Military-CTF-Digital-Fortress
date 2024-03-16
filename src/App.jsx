@@ -6,7 +6,7 @@ import Register from './pages/authorization/Register';
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 function App() {
-  const isPhone = useMediaQuery("only screen and (max-width : 768px)");
+  const isPhone = useMediaQuery("only screen and (max-width : 900px)");
 
   return (
     <BrowserRouter>
