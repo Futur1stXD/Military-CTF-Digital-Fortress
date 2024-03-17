@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-export default function ContentTimer() {
+export default function ContentTimer({ isPhone }) {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -24,7 +24,7 @@ export default function ContentTimer() {
   }, []);
 
   return (
-    <div className="timer-container">
+    <div className="timer-container" style={{ justifyContent: 'center', margin: 'auto', display: 'flex', width: isPhone ? '70%' : '100%', height: isPhone && '60%' }}>
       <div className="timer">
         <div className="col-4">
           <div className="box">

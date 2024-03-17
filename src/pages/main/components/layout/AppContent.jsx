@@ -18,7 +18,7 @@ export default function AppContent({isPhone}) {
     <Layout.Content style={contentStyle}>
       <div className="content-flag-container">
         <img src="src/img/ctf-flag.gif" alt="CTF Flag" className="content-img" />
-        <ContentTimer />
+        <ContentTimer isPhone={isPhone} />
       </div>
       <Divider style={{ backgroundColor: 'white', minWidth: '80%', width: '80%', display: 'flex', justifyContent: 'center', marginLeft: '10%' }} />
       <EventInfo isPhone={isPhone} />
