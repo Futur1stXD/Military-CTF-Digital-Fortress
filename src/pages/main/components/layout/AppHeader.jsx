@@ -1,6 +1,6 @@
 import { Layout, Space, Flex, Dropdown, Typography } from "antd";
 import { UserOutlined, TeamOutlined, SettingOutlined, MenuOutlined, KeyOutlined, QuestionCircleOutlined } from "@ant-design/icons";
-import { useState } from 'react'
+import { useState } from "react";
 
 const headerStyle = {
   height: 60,
@@ -11,8 +11,7 @@ const headerStyle = {
   justifyContent: "space-between",
 };
 
-export default function AppHeader({ isPhone }) {
-  const [authorized, setAuthorized] = useState(false);
+export default function AppHeader({ isPhone, authorized }) {
 
   const headerList = [
     { id: '1', title: "Ключевые события", destination: "" },

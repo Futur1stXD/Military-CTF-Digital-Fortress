@@ -1,20 +1,59 @@
-import { Form, Input, Button } from 'antd';
+import { useState } from 'react';
+import { Form, Input, Button, message } from 'antd';
 
-const onFinish = (values) => {
-    console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-};
 
 export default function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setLoading] = useState(false);
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const errorMessage = (message) => {
+        messageApi.open({
+            type: 'error',
+            content: message,
+        });
+    };
+
+    const onFinish = async (values) => {
+        try {
+            setLoading(true);
+            const response = await fetch('http://localhost:8080/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: values.email, password: values.password })
+            });
+
+            if (!response.ok) {
+                const errorMessageText = await response.text();
+                errorMessage(errorMessageText);
+                setLoading(false);
+            }
+
+            const data = await response.json();
+            if (data === null) {
+                errorMessage("Ошибка при авторизации");
+                setLoading(false);
+                throw new Error("Ошибка при авторизации");
+            }
+            localStorage.setItem('token', data.token);
+            setLoading(false);
+            window.location.href = "http://localhost:5173/";
+        } catch (error) {
+            setLoading(false);
+            throw new Error(error.message);
+        }
+    };
+
+
     return (
         <div className="bg-gray-900 min-h-screen flex justify-center items-center">
+            {contextHolder}
             <Form
                 name="login"
                 onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
                 className="max-w-sm mx-auto bg-inherit rounded-lg p-8"
             >
                 <div className="flex justify-center items-center">
@@ -32,6 +71,8 @@ export default function Login() {
                         type="email"
                         placeholder="Ваш email"
                         className="rounded-lg mb-1"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Item>
                 <p className='text-white'>Пароль от аккаунта</p>
@@ -42,6 +83,8 @@ export default function Login() {
                     <Input.Password
                         placeholder="Ваш пароль"
                         className="rounded-lg mb-1"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Item>
                 <Form.Item>
@@ -49,6 +92,7 @@ export default function Login() {
                         type="primary"
                         htmlType="submit"
                         className="w-full ring-lime bg-inherit"
+                        loading={isLoading}
                     >
                         Войти
                     </Button>

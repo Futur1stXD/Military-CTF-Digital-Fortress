@@ -12,8 +12,6 @@ export default function EventInfo({ isPhone }) {
         "only screen and (min-width : 1301px) and (max-width: 1500px)"
     );
 
-    console.log(isMediumDevice)
-
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: 'AIzaSyBeCKp1lWZ5rWDNyYDyPeMT1wOXMh9J4l8',
     });
