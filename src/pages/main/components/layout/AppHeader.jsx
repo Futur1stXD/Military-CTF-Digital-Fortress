@@ -1,5 +1,5 @@
 import { Layout, Space, Flex, Dropdown, Typography } from "antd";
-import { UserOutlined, TeamOutlined, SettingOutlined } from "@ant-design/icons";
+import { UserOutlined, TeamOutlined, SettingOutlined, MenuOutlined, KeyOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import { useState } from 'react'
 
 const headerStyle = {
@@ -11,7 +11,7 @@ const headerStyle = {
   justifyContent: "space-between",
 };
 
-export default function AppHeader() {
+export default function AppHeader({ isPhone }) {
   const [authorized, setAuthorized] = useState(false);
 
   const headerList = [
@@ -20,10 +20,26 @@ export default function AppHeader() {
     { id: '3', title: "FAQ", destination: "" },
   ];
 
-  const items = [
+  const dropDownItems = [
     { label: "Аккаунт", key: "1", icon: <UserOutlined /> },
     { label: "Команда", key: "2", icon: <TeamOutlined /> },
     { label: "Наcтройки", key: "3", icon: <SettingOutlined /> },
+  ];
+
+  const dropDownItemsMobile = [
+    { label: "Ключевые события", key: "1", icon: <KeyOutlined />},
+    { label: "Организаторы", key: "2", icon: <TeamOutlined />},
+    { label: "FAQ", key: "3", icon: <QuestionCircleOutlined />},
+    { label: "Войти", key: "4", icon: <UserOutlined />},
+  ];
+
+  const dropDownItemsMobileAuth = [
+    { label: "Ключевые события", key: "1", icon: <KeyOutlined />},
+    { label: "Организаторы", key: "2", icon: <TeamOutlined />},
+    { label: "FAQ", key: "3", icon: <QuestionCircleOutlined />},
+    { label: "Профиль", key: "4", icon: <UserOutlined />},
+    { label: "Команда", key: "5", icon: <TeamOutlined /> },
+    { label: "Наcтройки", key: "6", icon: <SettingOutlined />},
   ];
 
   const onClick = ({ key }) => {
@@ -33,29 +49,38 @@ export default function AppHeader() {
   return (
     <Layout.Header style={headerStyle}>
       <div className="header-title">
-        Military CTF
+      <img src="src/img/logo.png" alt="logo" />
+        Military
       </div>
-      <Flex gap="large" style={{ alignItems: "center" }}>
-        {headerList.map((item) => (
-          <Typography.Text className="header-list" key={item.id}>{item.title}</Typography.Text>
-        ))}
-        {authorized ? <Dropdown menu={{ items, onClick }}>
-          <div className="header-button">
+      {isPhone ? (<div>
+        <Flex gap={'large'} style={{ alignItems: "center" }}>
+          <Dropdown menu={{ items: authorized ? dropDownItemsMobileAuth : dropDownItemsMobile, onClick }}>
+              <MenuOutlined style={{ color: 'white' }} />
+          </Dropdown>
+        </Flex>
+      </div>) : (<div>
+        <Flex gap="large" style={{ alignItems: "center" }}>
+          {headerList.map((item) => (
+            <Typography.Text className="header-list" key={item.id}>{item.title}</Typography.Text>
+          ))}
+          {authorized ? <Dropdown menu={{ items: dropDownItems, onClick }}>
+            <div className="header-button">
+              <Space>
+                <UserOutlined />
+                Профиль
+              </Space>
+            </div>
+          </Dropdown> : <div className="header-button">
             <Space>
-              <UserOutlined />
-              Профиль
+              <a href="/login" style={{ color: 'white' }}>
+                <UserOutlined style={{ paddingRight: 5 }} />
+                Войти
+              </a>
             </Space>
           </div>
-        </Dropdown> : <div className="header-button">
-          <Space>
-            <a href="/login" style={{ color: 'white' }}>
-              <UserOutlined style={{ paddingRight: 5 }} />
-              Войти
-            </a>
-          </Space>
-        </div>
-        }
-      </Flex>
+          }
+        </Flex>
+      </div>)}
     </Layout.Header >
   );
 }

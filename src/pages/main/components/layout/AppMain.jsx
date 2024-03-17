@@ -7,7 +7,7 @@ import AppFooter from "./AppFooter";
 export default function AppMain({isPhone}) {
   return (
     <Layout>
-      <AppHeader />
+      <AppHeader isPhone={isPhone} />
       <Layout>
         <AppContent isPhone={isPhone} />
       </Layout>

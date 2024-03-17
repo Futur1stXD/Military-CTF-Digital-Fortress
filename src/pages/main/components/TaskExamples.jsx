@@ -7,7 +7,7 @@ export default function TaskExamples({isPhone}) {
         {
             title: "Reverse Engineering",
             imgUrl: "src/img/reverse.png",
-            description: "Анализ закрытых программных решений с целью понимания их работы и выявления уязвимостей."
+            description: "Анализ программных решений с целью выявления уязвимостей."
         },
         {
             title: "Web Exploitation",
