@@ -7,7 +7,7 @@ export default function OrgCarousel() {
             <Typography.Title level={2} style={{ display: 'flex', justifyContent: 'center', margin: 'auto', color: 'white', paddingBottom: 20 }}>
                 Организиторы
             </Typography.Title>
-            <div className="slider" >
+            <div className="slider" style={{ width: '80%' }} >
                 <div className="slide-track">
                     <div className="slide">
                         <img src="src/img/military.png" height="80" width="100" alt="" />
