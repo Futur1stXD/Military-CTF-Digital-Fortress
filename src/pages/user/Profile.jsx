@@ -8,8 +8,11 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-
 const Profile = ({ authenticated, token }) => {
+    if (token === "") {
+        window.location.href = "http://localhost:5173/";
+    }
+
     const [imageSrc, setImageSrc] = useState("setImageSrc");
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");

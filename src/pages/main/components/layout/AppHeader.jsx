@@ -22,16 +22,15 @@ export default function AppHeader({ isPhone, authenticated }) {
   ];
 
   const dropDownItemsMobile = [
-    { label: "Команда", key: "1", icon: <TeamOutlined />, linkUrl: "/" },
-    { label: "Правила", key: "2", icon: <QuestionCircleOutlined />, linkUrl: '/rules' },
-    { label: "Войти", key: "3", icon: <UserOutlined />, linkUrl: "/login" },
+    { label: (<a href="/">Команда</a>), key: "1", icon: <TeamOutlined />},
+    { label: (<a href="/rules">Правила</a>), key: "2", icon: <QuestionCircleOutlined /> },
+    { label: (<a href="/login">Войти</a>), key: "3", icon: <UserOutlined /> },
   ];
 
   const dropDownItemsMobileAuth = [
-    { label: "Команда", key: "1", icon: <TeamOutlined /> },
-    { label: "Правила", key: "2", icon: <QuestionCircleOutlined /> },
-    { label: "Профиль", key: "3", icon: <UserOutlined /> },
-    { label: "Команда", key: "4", icon: <TeamOutlined /> },
+    { label: (<a href="/">Команда</a>), key: "1", icon: <TeamOutlined /> },
+    { label: (<a href="/rules">Правила</a>), key: "2", icon: <QuestionCircleOutlined /> },
+    { label: (<a href="/profile">Профиль</a>), key: "3", icon: <UserOutlined /> },
     { label: (<a onClick={signOut}>Выйти</a>), key: '6' },
   ];
 
@@ -45,7 +44,7 @@ export default function AppHeader({ isPhone, authenticated }) {
       </a>
       {isPhone ? (<div>
         <Flex gap={'large'} style={{ alignItems: "center" }}>
-          <Dropdown menu={{ items: authorized ? dropDownItemsMobileAuth : dropDownItemsMobile }}>
+          <Dropdown menu={{ items: authenticated ? dropDownItemsMobileAuth : dropDownItemsMobile }}>
             <MenuOutlined style={{ color: 'white' }} />
           </Dropdown>
         </Flex>
@@ -63,7 +62,6 @@ export default function AppHeader({ isPhone, authenticated }) {
                   <Space>
                     <UserOutlined />
                     Профиль
-
                   </Space>
                 </div>
               </a>
