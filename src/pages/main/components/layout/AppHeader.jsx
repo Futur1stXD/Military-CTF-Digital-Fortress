@@ -10,7 +10,11 @@ const headerStyle = {
   justifyContent: "space-between",
 };
 
-export default function AppHeader({ isPhone, authorized }) {
+export default function AppHeader({ isPhone, authenticated }) {
+  const signOut = () => {
+    localStorage.removeItem('token');
+    window.location.href = "http://localhost:5173/";
+  }
 
   const headerList = [
     { id: '1', title: "Команда", destination: "", linkUrl: "" },
@@ -28,7 +32,7 @@ export default function AppHeader({ isPhone, authorized }) {
     { label: "Правила", key: "2", icon: <QuestionCircleOutlined /> },
     { label: "Профиль", key: "3", icon: <UserOutlined /> },
     { label: "Команда", key: "4", icon: <TeamOutlined /> },
-    { label: "Наcтройки", key: "5", icon: <SettingOutlined /> },
+    { label: (<a onClick={signOut}>Выйти</a>), key: '6' },
   ];
 
   return (
@@ -48,17 +52,22 @@ export default function AppHeader({ isPhone, authorized }) {
       </div>) : (<div>
         <Flex gap="large" style={{ alignItems: "center" }}>
           {headerList.map((item) => (
-            <a href={item.linkUrl}>
+            <a href={item.linkUrl} key={item.id}>
               <Typography.Text className="header-list" key={item.id}>{item.title}</Typography.Text>
             </a>
           ))}
-          {authorized ?
-            <div className="header-button">
-              <Space>
-                <UserOutlined />
-                Профиль
-              </Space>
-            </div>
+          {authenticated ?
+            <Dropdown menu={{ items: [{ "key": '1', label: (<a onClick={signOut}>Выйти</a>) }] }}>
+              <a href="/profile">
+                <div className="header-button">
+                  <Space>
+                    <UserOutlined />
+                    Профиль
+
+                  </Space>
+                </div>
+              </a>
+            </Dropdown>
             : <div className="header-button">
               <Space>
                 <a href="/login" style={{ color: 'white' }}>

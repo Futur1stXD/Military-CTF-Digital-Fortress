@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 
 
-export default function Login() {
+export default function Login({authenticated}) {
+    if (authenticated) {
+        window.location.href = "http://localhost:5173/";
+    }
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setLoading] = useState(false);
@@ -65,7 +69,10 @@ export default function Login() {
                 <p className='text-white'>Адрес электронной почты</p>
                 <Form.Item
                     name="email"
-                    rules={[{ required: true, message: 'Пожалуйста введите электронную почту!' }]}
+                    rules={[{ required: true, message: 'Пожалуйста введите электронную почту!' }, {
+                        pattern: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/
+                        , message: "Правильно введите почту!"
+                    }]}
                 >
                     <Input
                         type="email"
