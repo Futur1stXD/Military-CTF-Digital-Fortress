@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const RulesCarousel = ({ isPhone }) => {
+const RulesCarousel = () => {
   const [active, setActive] = useState(0);
   const [autorotate, setAutorotate] = useState(true);
   const [autorotateTiming, setAutorotateTiming] = useState(5000);
+  
   const items = [
     {
       id: 1,
@@ -51,13 +52,21 @@ const RulesCarousel = ({ isPhone }) => {
     {
       id: 7,
 
+      img: "src/img/developers/yelnurx.jpg",
+      quote: "DON'T LET ANYBODY WORK HARDER THAN YOU DO.",
+      name: 'yelnurx',
+      role: 'RedTeam'
+    },
+    {
+      id: 8,
+
       img: "src/img/developers/munara.jpg",
       quote: "peep game and lock in my smooth operator",
       name: 'Munara',
       role: 'network engineer'
     },
     {
-      id: 8,
+      id: 9,
 
       img: "src/img/developers/fafeka.jpg",
       quote: "Ай лов актив директори",
@@ -65,7 +74,7 @@ const RulesCarousel = ({ isPhone }) => {
       role: 'Network Engineer'
     },
     {
-      id: 9,
+      id: 10,
 
       img: "src/img/developers/futur1st.jpg",
       quote: "Любитель тяжелого :P",
@@ -73,7 +82,7 @@ const RulesCarousel = ({ isPhone }) => {
       role: 'Full-stack Developer'
     },
     {
-      id: 10,
+      id: 11,
 
       img: "src/img/developers/The 7 march.jpg",
       quote: "I didn't think it would be so hard",

@@ -50,8 +50,8 @@ function App() {
           <Route path='/' element={<AppMain isPhone={isPhone} authenticated={authorized} />} />
           <Route path='/login' element={<Login authenticated={authorized} />} />
           <Route path='/register' element={<Register authenticated={authorized} />} />
-          <Route path='/rules' element={<Rules isPhone={isPhone} authorized={authorized} />} />
-          <Route path='/profile' element={<Profile isPhone={isPhone} authorized={authorized} />} />
+          <Route path='/rules' element={<Rules isPhone={isPhone} authenticated={authorized} />} />
+          <Route path='/profile' element={<Profile token={token} authenticated={authorized} />} />
         </Routes>
     </BrowserRouter>
   );

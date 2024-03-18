@@ -17,12 +17,12 @@ export default function AppHeader({ isPhone, authenticated }) {
   }
 
   const headerList = [
-    { id: '1', title: "Команда", destination: "", linkUrl: "" },
+    { id: '1', title: "Команда", destination: "", linkUrl: "/" },
     { id: '2', title: "Правила", destination: "", linkUrl: '/rules' },
   ];
 
   const dropDownItemsMobile = [
-    { label: "Команда", key: "1", icon: <TeamOutlined />, linkUrl: "" },
+    { label: "Команда", key: "1", icon: <TeamOutlined />, linkUrl: "/" },
     { label: "Правила", key: "2", icon: <QuestionCircleOutlined />, linkUrl: '/rules' },
     { label: "Войти", key: "3", icon: <UserOutlined />, linkUrl: "/login" },
   ];

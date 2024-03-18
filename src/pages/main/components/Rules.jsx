@@ -4,13 +4,13 @@ import AppFooter from "./layout/AppFooter"
 import RulesCarousel from "./RulesCarousel";
 
 
-export default function Rules({ isPhone, authorized }) {
+export default function Rules({ isPhone, authenticated }) {
 
     return (
         <div style={{
             backgroundColor: "#121927",
         }}>
-            <AppHeader isPhone={isPhone} authorized={authorized} />
+            <AppHeader isPhone={isPhone} authenticated={authenticated} />
             <Card style={{
                 width: '70%',
                 minHeight: "calc(100vh - 60px - 60px)",
@@ -35,7 +35,7 @@ export default function Rules({ isPhone, authorized }) {
                     <Typography.Text className=" text-white tracking-wide">12. Communication Etiquette: Use Telegram bot <a href="http://t.me/AITUMilitaryCTF_Bot">AITU Military CTF Bot</a> for communication with organizers, avoid unsocilited DMs/pings.</Typography.Text>
 
                 </Flex>
-                <RulesCarousel isPhone={isPhone} authorized={authorized} />
+                <RulesCarousel />
                 </Card>
 
             <AppFooter isPhone={isPhone} />
