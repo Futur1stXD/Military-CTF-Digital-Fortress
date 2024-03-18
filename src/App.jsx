@@ -5,6 +5,7 @@ import Login from './pages/authorization/Login';
 import Register from './pages/authorization/Register';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useState, useEffect } from 'react';
+import Rules from './pages/main/components/Rules';
 
 
 
@@ -20,23 +21,20 @@ function App() {
     }
   }, [token]);
 
-  const newAuthSession = (auth) => {
-    setAuthorized(auth);
-  }
 
-  const fetchAuthStatus = async () => {
+  const fetchAuthStatus = async() => {
     try {
-      const response = await fetch('http://localhost:8080/auth/getAuth', {
-        method: 'POST',
+      const response = await fetch('http://localhost:8080/user/getAuth', {
+        method: 'GET',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ token: token })
       });
-
+      
       if (response.ok) {
         const data = await response.json();
-        setAuthorized(data.authorized);
+        setAuthorized(data.authenticated);
       } else {
         console.error('Error fetching authentication status:', response.statusText);
       }
@@ -51,6 +49,7 @@ function App() {
           <Route path='/' element={<AppMain isPhone={isPhone} authorized={authorized} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/rules' element={<Rules authorized={authorized} />} />
         </Routes>
     </BrowserRouter>
   );

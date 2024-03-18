@@ -131,3 +131,11 @@
 .ring-lime {
   border: 2px solid #9fef01;
 }
+
+.rules-carousel .rotating {
+  transition: transform 0.5s ease-in-out;
+}
+
+.rules-carousel .rotating.rotate-in {
+  transform: rotateY(360deg);
+}
