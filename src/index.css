@@ -139,3 +139,7 @@
 .rules-carousel .rotating.rotate-in {
   transform: rotateY(360deg);
 }
+
+.bg-card{ 
+  background-color: #141D2B
+}

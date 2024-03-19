@@ -13,7 +13,7 @@ export default function AppFooter() {
   return (
     <Layout.Footer style={footerStyle}>
 
-      <footer class=" bottom-0 left-12  w-full p-1 md:flex md:items-center md:justify-center">
+      <footer className=" bottom-0 left-12  w-full p-1 md:flex md:items-center md:justify-center">
         <div className="flex items-center">
           <img src="src/img/logo.png" alt="" className="w-8 h-8 mr-4" />
           <span className="flex justify-center text-sm text-gray-500 sm:text-center  dark:text-gray-400 text-wrap">

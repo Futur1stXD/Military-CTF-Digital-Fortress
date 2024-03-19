@@ -120,7 +120,7 @@ export default function Register({ authenticated }) {
                     name="phonenumber"
                     hasFeedback
                     rules={[{ required: true, message: 'Пожалуйста введите номер!' }, {
-                        pattern: /^\+(?:[0-9] ?){6,14}[0-9]$/
+                        pattern: /^(?:[0-9] ?){6,14}[0-9]$/
                         , message: "Правильно введите номер телефона!"
                     }]}
                 >
@@ -134,7 +134,7 @@ export default function Register({ authenticated }) {
                 <p className='text-white'>Телеграмм</p>
                 <Form.Item
                     name="telegramnick"
-                    rules={[{ required: true, message: 'Пожалуйста введите телеграмм!' }, { pattern: '@', message: "Введите правильно телеграм!" }]}
+                    rules={[{ required: true, message: 'Пожалуйста введите телеграмм!' }]}
                     hasFeedback
                 >
                     <Input

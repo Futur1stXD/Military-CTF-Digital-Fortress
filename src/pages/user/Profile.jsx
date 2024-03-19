@@ -8,8 +8,8 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const Profile = ({ authenticated, token }) => {
-    if (token === "") {
+const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
+    if (token === "" && !authenticated) {
         window.location.href = "http://localhost:5173/";
     }
 
@@ -107,7 +107,7 @@ const Profile = ({ authenticated, token }) => {
 
     return (
         <section style={{ backgroundColor: "#121927" }}>
-            <AppHeader authenticated={authenticated} />
+            <AppHeader authenticated={authenticated} isPhone={isPhone} />
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -122,18 +122,6 @@ const Profile = ({ authenticated, token }) => {
                 <div style={{ flex: '1', marginRight: '2rem' }}>
                     <div>
                         <div className="">
-                            {/* {imageSrc && (
-                                <div className="relative mt-6 ml-6 flex justify-center">
-                                    <img className="w-24 h-24 rounded-full ml-4 cursor-pointer" src={imageSrc} alt="" onClick={handleDelete} />
-                                    <DeleteOutlined className="" onClick={handleDelete} />
-                                </div>
-                            )}
-                            {!imageSrc && (
-                                <label htmlFor="file_input" className="cursor-pointer flex justify-center">
-                                    <UploadOutlined className="w-24 h-24 rounded-full ml-28  mt-5" />
-                                    <input type="file" id="file_input" className="hidden" onChange={handleFileInputChange} />
-                                </label>
-                            )} */}
                             <div className="relative mt-6 ml-6 flex justify-center gap-4">
                                 <UserOutlined />
                             </div>
@@ -189,7 +177,7 @@ const Profile = ({ authenticated, token }) => {
                 </div>
             </div>
 
-            <AppFooter />
+            <AppFooter isPhone={isPhone} />
         </section>
     );
 };
