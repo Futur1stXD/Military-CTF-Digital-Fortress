@@ -12,7 +12,9 @@ app.use(express.static('frontend/dist'));
 app.use('/src/img', express.static('frontend/src/img'));
 
 app.get('*', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
   
 app.listen(port, () => console.log('Server has been started on port 80...'));
