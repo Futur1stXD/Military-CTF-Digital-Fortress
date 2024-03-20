@@ -31,7 +31,7 @@ export default function Register({ authenticated }) {
     const onFinish = async (values) => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:8080/auth/register', {
+            const response = await fetch('https://10.1.14.162/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ export default function Register({ authenticated }) {
                 setLoading(false);
             } else {
                 setLoading(false);
-                window.location.href = "http://localhost:5173/login";
+                window.location.href = "https://10.1.14.162/login";
             }
         } catch (error) {
             setLoading(false);
