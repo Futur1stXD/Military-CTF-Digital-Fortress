@@ -70,7 +70,7 @@ const RulesCarousel = () => {
       id: 9,
 
       img: "src/img/developers/fafeka.jpg",
-      quote: "Ай лов актив директори",
+      quote: "destination host unreachable",
       name: 'fafeka',
       role: 'Network Engineer'
     },
