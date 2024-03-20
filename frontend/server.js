@@ -13,6 +13,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/src/img', express.static(path.join(__dirname, 'src', 'img')));
 
 // Отправлять index.html только для корневого URL
+
+app.get('*', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
