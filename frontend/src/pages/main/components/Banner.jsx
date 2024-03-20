@@ -230,7 +230,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                 <img src="src/img/ctf-digital.png" alt="" className="md:w-1/4 md:h-1/4 w-5/6 h-/6 md:pt-12 py-5" />
                 {(!authenticated && !isMyTeamCreated) && <h5 style={{color: 'red'}}>Для регистрации вам нужно авторизоваться и создать команду!</h5>}
                 {(authenticated && isMyTeamCreated) && <div>{isMyTeamJoined ? <div><ReCAPTCHA
-                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            sitekey="6Le00Z4pAAAAAOKiPvZl_-hKE5XzcBwSTBVU-Ex5"
                             className='mt-4 ml-2'
                             onChange={() => setCapcha(true)}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/><Button danger ghost size='large' disabled={!capcha} style={{color: 'red'}} onClick={unJoin}>Отменить регистрацию {title}</Button></div> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команд: {title}</Button> }
@@ -242,7 +242,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                             </Form.Item>
                             <p style={{ color: 'orange' }}>Рассказав о вашем опыте в CTF, вы повысите шансы на отбор.</p>
                             <ReCAPTCHA
-                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            sitekey="6Le00Z4pAAAAAOKiPvZl_-hKE5XzcBwSTBVU-Ex5"
                             className='mt-4 ml-2'
                             onChange={() => setCapcha(true)}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>

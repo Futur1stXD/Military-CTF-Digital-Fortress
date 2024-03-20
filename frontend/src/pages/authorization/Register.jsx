@@ -221,7 +221,7 @@ export default function Register({ authenticated }) {
                     />
                 </Form.Item>
                 <ReCAPTCHA
-                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            sitekey="6Le00Z4pAAAAAOKiPvZl_-hKE5XzcBwSTBVU-Ex5"
                             className='mt-4 ml-2'
                             onChange={() => setCapcha(true)}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
