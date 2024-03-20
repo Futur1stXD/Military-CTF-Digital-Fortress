@@ -1,1 +1,0 @@
-# Military CTF: Digital Fortress
