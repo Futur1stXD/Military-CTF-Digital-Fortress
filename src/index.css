@@ -143,3 +143,28 @@
 .bg-card{ 
   background-color: #141D2B
 }
+
+/* ---------ADMINKA--------- */
+
+.table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 8px; /* Определяет расстояние между содержимым ячейки и ее границей */
+}
+
+.table-wrapper th {
+  background-color: #f2f2f2; /* Цвет фона для заголовков */
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  border: 1px solid #ddd; /* Границы ячеек */
+}
+
+.table-wrapper th {
+  text-align: left; /* Выравнивание текста в заголовках по левому краю */
+}
