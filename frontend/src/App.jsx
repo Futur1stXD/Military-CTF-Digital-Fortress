@@ -38,7 +38,7 @@ function App() {
 
   const fetchAuthStatus = async() => {
     try {
-      const response = await fetch('http://localhost:8080/user/getAuth', {
+      const response = await fetch('https://10.1.14.162/api/user/getAuth', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

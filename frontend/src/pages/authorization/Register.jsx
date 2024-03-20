@@ -4,7 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Register({ authenticated }) {
     if (authenticated) {
-        window.location.href = "http://localhost:5173/";
+        window.location.href = "https://10.1.14.162/";
     }
 
     const [firstname, setFirstName] = useState('');

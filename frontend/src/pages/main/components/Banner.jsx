@@ -44,7 +44,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const fetchTeams = async () => {
         try {
-            const response = await fetch('http://localhost:8080/team/getCTFTeams', {
+            const response = await fetch('https://10.1.14.162/api/team/getCTFTeams', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const getIsTeamJoined = async() => {
         try {
-            const response = await fetch('http://localhost:8080/team/getCTF_Team_isJoined', {
+            const response = await fetch('https://10.1.14.162/api/team/getCTF_Team_isJoined', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const getTeam = async () => {
         try {
-            const response = await fetch('http://localhost:8080/team/getTeam', {
+            const response = await fetch('https://10.1.14.162/api/team/getTeam', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
     const onFinish = async (values) => {
         try {
             setIsLoading(true);
-            const response = await fetch('http://localhost:8080/team/join_ctf', {
+            const response = await fetch('https://10.1.14.162/api/team/join_ctf', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const unJoin = async() => {
         try {
-            const response = await fetch('http://localhost:8080/team/unJoin_CTF_team', {
+            const response = await fetch('https://10.1.14.162/api/team/unJoin_CTF_team', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

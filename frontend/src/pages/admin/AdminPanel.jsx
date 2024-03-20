@@ -3,7 +3,7 @@ import { Button, Flex, message } from "antd";
 
 export default function AdminPanel({ authenticated, token }) {
     if (token === "" && !authenticated) {
-        window.location.href = "http://localhost:5173/";
+        window.location.href = "https://10.1.14.162/";
     }
 
     const [teams, setTeams] = useState([]);
@@ -28,7 +28,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const fetchTeams = async () => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/getTeams', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/getTeams', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/getUsers', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/getUsers', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const fetctCTFTeams = async () => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/getCTFTeams', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/getCTFTeams', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const setAdmin = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/setAdmin', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/setAdmin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const setUser = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/setAdmin', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/setAdmin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const deleteUser = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/deleteUser/'+id, {
+            const response = await fetch('https://10.1.14.162/api/org/admin/deleteUser/'+id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const deleteTeam = async(id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/deleteTeam/'+id, {
+            const response = await fetch('https://10.1.14.162/api/org/admin/deleteTeam/'+id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const deleteCTFTeam = async(id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/deleteCTFTeam/'+id, {
+            const response = await fetch('https://10.1.14.162/api/org/admin/deleteCTFTeam/'+id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -211,7 +211,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const setAccepted = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/setCTFTeam_status', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/setCTFTeam_status', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -233,7 +233,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const setProcess = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/setCTFTeam_status', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/setCTFTeam_status', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ export default function AdminPanel({ authenticated, token }) {
 
     const setAdopted = async (id) => {
         try {
-            const response = await fetch('http://localhost:8080/org/admin/setCTFTeam_status', {
+            const response = await fetch('https://10.1.14.162/api/org/admin/setCTFTeam_status', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

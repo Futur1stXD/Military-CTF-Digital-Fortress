@@ -4,7 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Login({authenticated}) {
     if (authenticated) {
-        window.location.href = "http://localhost:5173/";
+        window.location.href = "https://10.1.14.162/";
     }
 
     const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ export default function Login({authenticated}) {
     const onFinish = async (values) => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:8080/auth/login', {
+            const response = await fetch('https://10.1.14.162/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export default function Login({authenticated}) {
             }
             localStorage.setItem('token', data.token);
             setLoading(false);
-            window.location.href = "http://localhost:5173/";
+            window.location.href = "https://10.1.14.162/";
         } catch (error) {
             setLoading(false);
             throw new Error(error.message);
