@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
-
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Login({authenticated}) {
     if (authenticated) {
@@ -11,6 +11,8 @@ export default function Login({authenticated}) {
     const [password, setPassword] = useState('');
     const [isLoading, setLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
+
+    const [capcha, setCapcha] = useState(false);
 
     const errorMessage = (message) => {
         messageApi.open({
@@ -94,12 +96,18 @@ export default function Login({authenticated}) {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Item>
+                <ReCAPTCHA
+                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            className='mt-4 ml-2'
+                            onChange={() => setCapcha(true)}
+                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
                 <Form.Item>
                     <Button
                         type="primary"
                         htmlType="submit"
                         className="w-full ring-lime bg-inherit"
                         loading={isLoading}
+                        disabled={!capcha}
                     >
                         Войти
                     </Button>

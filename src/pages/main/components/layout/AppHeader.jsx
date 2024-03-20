@@ -1,5 +1,5 @@
 import { Layout, Space, Flex, Dropdown, Typography } from "antd";
-import { UserOutlined, TeamOutlined, MenuOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { UserOutlined, TeamOutlined, MenuOutlined, QuestionCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
 const headerStyle = {
   height: 60,
@@ -17,21 +17,24 @@ export default function AppHeader({ isPhone, authenticated }) {
   }
 
   const headerList = [
-    { id: '1', title: "Команда", destination: "", linkUrl: "/team" },
-    { id: '2', title: "Правила", destination: "", linkUrl: '/rules' },
+    { id: '1', title: "Регистрация на CTF", destination: "", linkUrl: "/ctf" },
+    { id: '2', title: "Команда", destination: "", linkUrl: "/team" },
+    { id: '3', title: "Правила", destination: "", linkUrl: '/rules' },
   ];
 
   const dropDownItemsMobile = [
-    { label: (<a href="/team">Команда</a>), key: "1", icon: <TeamOutlined />},
-    { label: (<a href="/rules">Правила</a>), key: "2", icon: <QuestionCircleOutlined /> },
-    { label: (<a href="/login">Войти</a>), key: "3", icon: <UserOutlined /> },
+    { label: (<a href="/ctf">Регистрация на CTF</a>), key: "1", icon: <CheckCircleOutlined />},
+    { label: (<a href="/team">Команда</a>), key: "2", icon: <TeamOutlined />},
+    { label: (<a href="/rules">Правила</a>), key: "3", icon: <QuestionCircleOutlined /> },
+    { label: (<a href="/login">Войти</a>), key: "4", icon: <UserOutlined /> },
   ];
 
   const dropDownItemsMobileAuth = [
-    { label: (<a href="/team">Команда</a>), key: "1", icon: <TeamOutlined /> },
-    { label: (<a href="/rules">Правила</a>), key: "2", icon: <QuestionCircleOutlined /> },
-    { label: (<a href="/profile">Профиль</a>), key: "3", icon: <UserOutlined /> },
-    { label: (<a onClick={signOut}>Выйти</a>), key: '6' },
+    { label: (<a href="/ctf">Регистрация на CTF</a>), key: "1", icon: <CheckCircleOutlined />},
+    { label: (<a href="/team">Команда</a>), key: "2", icon: <TeamOutlined /> },
+    { label: (<a href="/rules">Правила</a>), key: "3", icon: <QuestionCircleOutlined /> },
+    { label: (<a href="/profile">Профиль</a>), key: "4", icon: <UserOutlined /> },
+    { label: (<a onClick={signOut}>Выйти</a>), key: '5' },
   ];
 
   return (

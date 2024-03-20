@@ -1,5 +1,6 @@
 import { Form, Input, Button, message } from 'antd';
 import { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Register({ authenticated }) {
     if (authenticated) {
@@ -13,6 +14,9 @@ export default function Register({ authenticated }) {
     const [nickname, setNickName] = useState('');
     const [telegramnick, setTelegramNick] = useState('');
     const [phonenumber, setPhoneNumber] = useState('');
+
+    const [capcha, setCapcha] = useState(false);
+
 
     const [isLoading, setLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
@@ -216,12 +220,18 @@ export default function Register({ authenticated }) {
                         className="rounded-lg mb-1"
                     />
                 </Form.Item>
+                <ReCAPTCHA
+                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            className='mt-4 ml-2'
+                            onChange={() => setCapcha(true)}
+                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
                 <Form.Item>
                     <Button
                         type="primary"
                         htmlType="submit"
                         className="w-full ring-lime bg-inherit"
                         loading={isLoading}
+                        disabled={!capcha}
                     >
                         Войти
                     </Button>

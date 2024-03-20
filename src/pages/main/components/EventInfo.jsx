@@ -1,6 +1,6 @@
 import { Card, Flex, Typography, Carousel } from 'antd';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
-import { FlagOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { FlagOutlined, ExclamationCircleOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 export default function EventInfo({ isPhone }) {
@@ -68,6 +68,7 @@ export default function EventInfo({ isPhone }) {
                                 <Typography.Text>Адрес: г. Астана, Проспект Мангилик Ел, 53/1</Typography.Text>
                                 <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                                 <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
+                                <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
                                 <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                             </Flex>
                         </Card>
@@ -110,6 +111,7 @@ export default function EventInfo({ isPhone }) {
                                 <Typography.Text>Адрес: г. Астана, Проспект Мангилик Ел, 53/1</Typography.Text>
                                 <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                                 <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
+                                <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
                                 <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                             </Flex>
                         </Card>
@@ -154,7 +156,8 @@ export default function EventInfo({ isPhone }) {
                                     <Typography.Text>Адрес: г. Астана, Проспект Мангилик Ел, 53/1</Typography.Text>
                                     <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                                     <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
-                                    <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
+                                    <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
+                                    <Typography.Text strong><a href="/rules"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                                 </Flex>
                             </Card>
                         </Flex>
@@ -190,6 +193,7 @@ export default function EventInfo({ isPhone }) {
                             <Typography.Text>Адрес: г. Астана, Проспект Мангилик Ел, 53/1</Typography.Text>
                             <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                             <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
+                            <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
                             <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                         </Flex>
                     </Flex>

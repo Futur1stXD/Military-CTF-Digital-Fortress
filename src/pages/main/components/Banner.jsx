@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, Tag, Mentions, message, Button, Modal, Form, Input } from 'antd';
 import AppHeader from './layout/AppHeader';
 import AppFooter from './layout/AppFooter';
-
+import ReCAPTCHA from 'react-google-recaptcha'
 const { Option } = Mentions;
 
 const Banner = ({ isPhone, authenticated, token }) => {
@@ -16,6 +16,8 @@ const Banner = ({ isPhone, authenticated, token }) => {
     const [isMyTeamCreated, setMyTeamCreated] = useState(false);
     const [isMyTeamJoined, setMyTeamJoined] = useState(false);
 
+
+    const [capcha, setCapcha] = useState(false);
     const errorMessage = (message) => {
         messageApi.open({
             type: 'error',
@@ -24,10 +26,21 @@ const Banner = ({ isPhone, authenticated, token }) => {
     };
 
     useEffect(() => {
-        fetchTeams();
-        getTeam();
-        getIsTeamJoined();
-    }, []);
+        async function fetchData() {
+            setIsLoading(true);
+    
+            await fetchTeams(); 
+    
+            if (authenticated && token !== "") {
+                await getTeam();
+                await getIsTeamJoined();
+            }
+    
+            setIsLoading(false);
+        }
+    
+        fetchData();
+    }, [authenticated, token]); 
 
     const fetchTeams = async () => {
         try {
@@ -100,6 +113,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
             }
             const data = await response.json();
             setTitle(data.title);
+            console.log(data.title)
             setMyTeamCreated(true);
         } catch (error) {
             console.error("Произошла ошибка:", error);
@@ -129,6 +143,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
             }
 
             await fetchTeams();
+            setCapcha(false);
             setMyTeamJoined(true);
             setIsLoading(false);
             setIsModalOpen(false);
@@ -213,7 +228,12 @@ const Banner = ({ isPhone, authenticated, token }) => {
                 justifyContent: "center",
             }} >
                 <img src="src/img/ctf-digital.png" alt="" className="md:w-1/4 md:h-1/4 w-5/6 h-/6 md:pt-12 py-5" />
-                {authenticated && isMyTeamCreated && <div>{isMyTeamJoined ? <Button danger ghost size='large' onClick={unJoin}>Отменить регистрацию {title}</Button> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команд: {title}</Button>}
+                {(!authenticated && !isMyTeamCreated) && <h5 style={{color: 'red'}}>Для регистрации вам нужно авторизоваться и создать команду!</h5>}
+                {(authenticated && isMyTeamCreated) && <div>{isMyTeamJoined ? <div><ReCAPTCHA
+                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            className='mt-4 ml-2'
+                            onChange={() => setCapcha(true)}
+                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/><Button danger ghost size='large' disabled={!capcha} style={{color: 'red'}} onClick={unJoin}>Отменить регистрацию {title}</Button></div> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команд: {title}</Button> }
                     <Modal title="Регистрация команды" open={isModalOpen} onOk={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)}>
                         <h4>Вы регистрируете команду: {title}</h4>
                         <Form name="team" onFinish={onFinish}>
@@ -221,7 +241,12 @@ const Banner = ({ isPhone, authenticated, token }) => {
                                 <Input type="text" />
                             </Form.Item>
                             <p style={{ color: 'orange' }}>Рассказав о вашем опыте в CTF, вы повысите шансы на отбор.</p>
-                            <Button type="primary" htmlType="submit" loading={isLoading} style={{ marginTop: 10 }}>
+                            <ReCAPTCHA
+                            sitekey="6LcspZ4pAAAAALwT-NoK38Jtr1KpuodQn8KEjx22"
+                            className='mt-4 ml-2'
+                            onChange={() => setCapcha(true)}
+                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
+                            <Button type="primary" htmlType="submit" loading={isLoading} disabled={!capcha} style={{ marginTop: 10 }}>
                                 Подать заявку
                             </Button>
                         </Form>

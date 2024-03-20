@@ -10,6 +10,7 @@ import Profile from './pages/user/Profile';
 import Team from './pages/main/components/Team_create.jsx';
 import {message} from 'antd';
 import Banner from './pages/main/components/Banner.jsx';
+import AdminPanel from './pages/admin/AdminPanel.jsx';
 
 
 
@@ -69,6 +70,7 @@ function App() {
           <Route path='/profile' element={<Profile token={token} authenticated={authorized} isPhone={isPhone} />} />
           <Route path='/team' element={<Team isPhone={isPhone} authenticated={authorized} token={token} />} />
           <Route path='/ctf' element={<Banner authenticated={authorized} token={token} isPhone={isPhone} />} />
+          <Route path='/org/admin' element={<AdminPanel token={token} authenticated={authorized}/>} />
         </Routes>
     </BrowserRouter>
   );
