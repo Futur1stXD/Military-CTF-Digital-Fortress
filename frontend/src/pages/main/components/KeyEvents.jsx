@@ -45,14 +45,14 @@ export default function KeyEvents() {
             title: 'Начало CTF',
             description: "5 Апреля, 11:00-16:00",
             icon: <FlagOutlined />,
-            timer: 'March 29, 2024, 11:01'
+            timer: 'April 5, 2024, 11:00'
         },
         {
             id: '4',
             title: 'Награждение',
             description: "5 Апреля, 16:00-17:00",
             icon: <SketchOutlined />,
-            timer: 'March 29, 2024, 16:00'
+            timer: 'April 5, 2024, 16:01'
         },
     ];
 
