@@ -40,7 +40,7 @@ const RulesCarousel = () => {
       img: "src/img/developers/nurgiven.jpg",
       quote: "it’s hammer time.",
       name: 'nurgiven',
-      role: 'network engineer'
+      role: 'Network engineer'
     },
     {
       id: 6,
@@ -64,7 +64,7 @@ const RulesCarousel = () => {
       img: "src/img/developers/munara.jpg",
       quote: "peep game and lock in my smooth operator",
       name: 'Munara',
-      role: 'network engineer'
+      role: 'Network engineer'
     },
     {
       id: 9,
