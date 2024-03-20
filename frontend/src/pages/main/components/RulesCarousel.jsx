@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Typography } from 'antd';
 
 const RulesCarousel = () => {
   const [active, setActive] = useState(0);
@@ -109,7 +110,7 @@ const RulesCarousel = () => {
   return (
     <section>
       <div className='rules-carousel'>
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto px-2 sm:px-6">
         <div className="relative pb-12 md:pb-20">
           <div className="text-center">
             <div className="mt-12 flex items-center justify-center rounded-full">

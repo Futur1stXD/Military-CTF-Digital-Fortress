@@ -5,6 +5,7 @@ import TaskExamples from "../TaskExamples";
 import Prizes from "../Prizes";
 import OrgCarousel from "../OrgCarousel";
 import EventInfo from "../EventInfo";
+import RulesCarousel from "../RulesCarousel";
 
 const contentStyle = {
   minHeight: "calc(100vh - 60px - 60px)",
@@ -26,6 +27,7 @@ export default function AppContent({isPhone}) {
       <TaskExamples isPhone={isPhone} />
       <Prizes />
       <OrgCarousel />
+      <RulesCarousel />
     </Layout.Content>
   );
 }

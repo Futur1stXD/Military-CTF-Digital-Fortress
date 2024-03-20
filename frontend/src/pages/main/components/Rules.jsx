@@ -21,21 +21,20 @@ export default function Rules({ isPhone, authenticated }) {
             }}>
                 <Typography.Title style={{ paddingTop: 10, color: 'white', fontSize: '2rem' }}>Rules</Typography.Title>
                 <Flex vertical gap={5} style={{ paddingTop: 10 }}>
-                    <Typography.Text className=" text-white tracking-wide">1. Team Size: up to 3 team members allowed, but every player must have an account (No Account Sharing).</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">2. Flag Format: Use aitumilitaryctf{} unless specified otherwise.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">3. Fair Play: Adhere to all rules and maintain sportsmanship.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">4. Respectful Behavior: Maintain respect and courtesy towards all.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">5. No Sharing: Do not share flags, solutions, or post them online.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">6. Dynamic Scoring: Sharing flags reduces points; score board is dynamic.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">7. Pre-requisite Challenges: Some questions have a one or more follow up questions which only get unlocked on solving the preceeding challenges.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">8. Disqualification Rights: Organizers may disqualify for rule violations.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">9. No Cheating: Cheating or gaining unfair advantage leads to disqualification.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">10. No Malicious Activity: Do not harm competition infrastructure or other systems.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">11. Account Ownership: Each team member is required to have an individual account. Sharing accounts is forbidden.</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">12. Communication Etiquette: Use Telegram bot <a href="http://t.me/AITUMilitaryCTF_Bot">AITU Military CTF Bot</a> for communication with organizers, avoid unsocilited DMs/pings.</Typography.Text>
-
+                    <Typography.Text className=" text-white tracking-wide">1. Количество участников команды: допускается до 3 участников, но у каждого игрока должна быть учетная запись (совместное использование учетных записей запрещено).</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">2. Формат флага: aitumilitaryctf`{}`.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">3. Честная игра: Придерживайтесь всех правил.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">4. Уважительное поведение: Поддерживайте уважение и вежливость по отношению ко всем.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">5. Не делиться: Не делитесь флагами, решениями и не размещайте их в Интернете.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">6. Динамический подсчет очков: Совместное использование флагов уменьшает количество очков; табло является динамичным.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">7. Предварительные задания: В некоторых вопросах есть один или несколько дополнительных вопросов, которые открываются только при решении предыдущих заданий.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">8. Права на дисквалификацию: Организаторы могут дисквалифицировать за нарушения правил.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">9. Никакого мошенничества: Мошенничество или получение несправедливого преимущества приводит к дисквалификации.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">10. Отсутствие вредоносных действий: Не наносите вреда инфраструктуре конкуренции или другим системам.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">11. Владение учетной записью: Каждый член команды должен иметь индивидуальную учетную запись. Совместное использование учетных записей запрещено.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">12. Коммуникативный этикет: Используйте Telegram-бота <a href="http://t.me/AITUMilitaryCTF_Bot">AITU Military CTF Bot</a> для связи с организаторами избегайте сообщений DMS/ping.</Typography.Text>
+                    <Typography.Text className=" text-white tracking-wide">13. С денежных призов будет взиматься 10% налога согласно законодательству РК.</Typography.Text>
                 </Flex>
-                <RulesCarousel />
                 </Card>
 
             <AppFooter isPhone={isPhone} />
