@@ -368,7 +368,7 @@ export default function AdminPanel({ authenticated, token }) {
                         {ctf_teams.map(ctf_team => (
                             <tr key={ctf_team.id}>
                                 <td>{ctf_team.id}</td>
-                                <td>{ctf_team.id}</td>
+                                <td>{ctf_team.teamid}</td>
                                 <td>{ctf_team.description !== null ? ctf_team.description : "нету"}</td>
                                 <td>{ctf_team.status}</td>
                                 <td>
