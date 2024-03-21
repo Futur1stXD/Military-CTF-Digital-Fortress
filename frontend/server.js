@@ -20,15 +20,15 @@ app.get('*', (req, res) => {
 });
 
 app.get('/public/web.pdf', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'web.pdf'));
+    res.sendFile(path.join(__dirname, 'web.pdf'));
 });
 
 app.get('/public/OSINT.pdf', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'OSINT.pdf'));
+    res.sendFile(path.join(__dirname, 'OSINT.pdf'));
 });
 
 app.get('/public/reverse.pdf', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'reverse.pdf'));
+    res.sendFile(path.join(__dirname, 'reverse.pdf'));
 });
 
 app.use((req, res, next) => {

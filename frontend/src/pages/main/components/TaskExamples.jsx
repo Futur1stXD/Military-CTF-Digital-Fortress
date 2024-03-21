@@ -8,19 +8,19 @@ export default function TaskExamples({isPhone}) {
             title: "Reverse Engineering",
             imgUrl: "src/img/reverse.png",
             description: "Анализ программных решений с целью выявления уязвимостей.",
-            url: "./public/reverse.pdf"
+            url: "./reverse.pdf"
         },
         {
             title: "Web Exploitation",
             imgUrl: "./src/img/web.jpg",
             description: "Использование уязвимостей в веб-приложениях для проникновения в систему.",
-            url: "./public/web.pdf"
+            url: "./web.pdf"
         },
         {
             title: "OSINT",
             imgUrl: "./src/img/OSINT.jpg",
             description: "Сбор и анализ данных из общедоступных источников для решения задачи.",
-            url: "./public/OSINT.pdf"
+            url: "./OSINT.pdf"
         },
     ];
 

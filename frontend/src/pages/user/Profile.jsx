@@ -127,8 +127,48 @@ const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
                             </div>
                     
                                 <p className='ml-6 mb-10 flex justify-center'>{nickname}</p>
+                                
                                 <div className="max-w-3xl sm:px-6 flex flex-wrap ">
-                                    <div className="w-full md:w-5/6 p-4 mb-4 md:mb-0">
+                                    {isPhone ? 
+                                    <div className="w-full md:w-5/6 p-4 mb-4 ml-8 md:ml-0 md:mb-0">
+                                    
+                                        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg">
+                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <label htmlFor="name">Name:</label>
+                                            <input type="text" id="name" className="p-1" defaultValue={name} disabled />
+                                        </div>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <label htmlFor="name">Surname:</label>
+                                            <input type="text" id="name" className="p-1" defaultValue={surname} disabled />
+                                        </div>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <div className='flex'>
+                                                <label htmlFor="telegram">Telegram:</label>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 text-gray-800 dark:text-white" viewBox="0 0 48 48">
+                                                </svg>
+                                            </div>
+                                            <input type="text" id="telegram" className="p-1" defaultValue={telegramNick} disabled />
+                                        </div>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <label htmlFor="nickname">Nickname:</label>
+                                            <input type="text" id="nickname" className="p-1" defaultValue={nickname} disabled />
+                                        </div>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <div className='flex'>
+                                                <label htmlFor="email">Email:</label>
+                                                <svg class="w-5 h-5 ml-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 21">
+                                                </svg>
+                                            </div>
+                                            <input type="email" id="email" className="p-1" defaultValue={email} disabled />
+                                        </div>
+                                        <div className="mb-4 grid grid-rows-2">
+                                            <label htmlFor="phone">Phone:</label>
+                                            <input type="tel" id="phone" className="p-1" defaultValue={phone} disabled />
+                                        </div>
+                                        <Button type={isChanged ? 'primary' : 'dashed'} style={{ opacity: isChanged ? 1 : 0.5 }} disabled={isChanged}>Изменить</Button>
+                                    </div>
+                                </div> : <div className="w-full md:w-5/6 p-4 mb-4 md:mb-0">
                                         <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
                                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
                                             <div className="mb-4 grid grid-rows-2">
@@ -165,7 +205,7 @@ const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
                                             </div>
                                             <Button type={isChanged ? 'primary' : 'dashed'} style={{ opacity: isChanged ? 1 : 0.5 }} disabled={isChanged}>Изменить</Button>
                                         </div>
-                                    </div>
+                                    </div>}
                                     <div className="w-full md:w-1/6 bg-inherit p-4 mb-4 md:mb-0">
                                         <div className='w-full md:w-96 h-96 mb-4 md:mb-0 mt-10 md:ml-20 ml-12'>
                                             <Pie data={chartData} />
