@@ -33,7 +33,7 @@ export default function TaskExamples({isPhone}) {
                         <Card title={card.title} bordered={false} key={card.title} style={{ width: '80%' }} extra={<a href={card.url} target='_blank'><Button type='primary' style={{ width: 110 }}>Открыть<FilePdfOutlined /></Button> </a>}>
                             <Flex vertical align='flex-end' gap={25}>
                                 <Flex justify='space-evenly' gap={10}>
-                                    <img src={card.imgUrl} alt={card.title} style={{ width: '15%'}} />
+                                    <img src={card.imgUrl} alt={card.title} style={{ width: '35%'}} />
                                     <Typography.Text>{card.description}</Typography.Text>
                                 </Flex>
                             </Flex>
