@@ -9,9 +9,9 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Profile = ({ authenticated, token, isPhone}) => {
-    // if (token === "" && !authenticated) {
-    //     window.location.href = "https://ctf.astanait.edu.kz/";
-    // }
+    if (token === "" && !authenticated) {
+        window.location.href = "https://ctf.astanait.edu.kz/";
+    }
 
     const [imageSrc, setImageSrc] = useState("setImageSrc");
     const [name, setName] = useState("");
