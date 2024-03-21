@@ -6,7 +6,7 @@ import { TeamOutlined, MinusCircleOutlined, ShrinkOutlined, UsergroupAddOutlined
 
 export default function Team({ isPhone, authenticated, token }) {
     if (token === "" && !authenticated) {
-        window.location.href = "https://10.1.14.162/";
+        window.location.href = "https://ctf.astanait.edu.kz/";
     }
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -30,7 +30,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const onFinish = async (values) => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/create', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/create', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const getTeam = async () => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/getTeam', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/getTeam', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const deleteUser = async (member) => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/deleteMember', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/deleteMember', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const deleteTeam = async () => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/deleteTeam', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/deleteTeam', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -169,7 +169,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const leaveTeam = async () => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/leave', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/leave', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -196,7 +196,7 @@ export default function Team({ isPhone, authenticated, token }) {
     const addMember = async (values) => {
         try {
             setLoadingInvite(true);
-            const response = await fetch('https://10.1.14.162/api/team/addMember', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/addMember', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

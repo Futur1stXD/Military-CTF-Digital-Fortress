@@ -10,7 +10,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
     if (token === "" && !authenticated) {
-        window.location.href = "https://10.1.14.162/";
+        window.location.href = "https://ctf.astanait.edu.kz/";
     }
 
     const [imageSrc, setImageSrc] = useState("setImageSrc");
@@ -26,7 +26,7 @@ const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
 
     const getProfile = async () => {
         try {
-            const response = await fetch('https://10.1.14.162/api/user/profile', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/user/profile', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`

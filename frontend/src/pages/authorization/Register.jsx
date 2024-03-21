@@ -4,7 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Register({ authenticated }) {
     if (authenticated) {
-        window.location.href = "https://10.1.14.162/";
+        window.location.href = "https://ctf.astanait.edu.kz/";
     }
 
     const [firstname, setFirstName] = useState('');
@@ -15,8 +15,13 @@ export default function Register({ authenticated }) {
     const [telegramnick, setTelegramNick] = useState('');
     const [phonenumber, setPhoneNumber] = useState('');
 
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
     const [capcha, setCapcha] = useState(false);
 
+    const handleCaptchaChange = (token) => {
+        setRecaptchaToken(token);
+        setCapcha(true);
+    };
 
     const [isLoading, setLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
@@ -31,7 +36,7 @@ export default function Register({ authenticated }) {
     const onFinish = async (values) => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/auth/register', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -43,7 +48,8 @@ export default function Register({ authenticated }) {
                     password: values.password,
                     nickname: values.nickname,
                     telegramNick: values.telegramnick,
-                    phoneNumber: values.phonenumber
+                    phoneNumber: values.phonenumber,
+                    recaptchaToken: recaptchaToken
                 })
             });
 
@@ -61,7 +67,7 @@ export default function Register({ authenticated }) {
                 setLoading(false);
             } else {
                 setLoading(false);
-                window.location.href = "https://10.1.14.162/login";
+                window.location.href = "https://ctf.astanait.edu.kz/login";
             }
         } catch (error) {
             setLoading(false);
@@ -123,10 +129,13 @@ export default function Register({ authenticated }) {
                 <Form.Item
                     name="phonenumber"
                     hasFeedback
-                    rules={[{ required: true, message: 'Пожалуйста введите номер!' }, {
-                        pattern: /^(?:[0-9] ?){6,14}[0-9]$/
-                        , message: "Правильно введите номер телефона!"
-                    }]}
+                    rules={[
+                        { required: true, message: 'Пожалуйста, введите номер!' },
+                        { 
+                            pattern: /^(?:\+?[0-9] ?){10,14}[0-9]$/,
+                            message: 'Пожалуйста, введите правильный номер телефона!'
+                        }
+                    ]}
                 >
                     <Input
                         placeholder="Номер телефона"
@@ -142,7 +151,7 @@ export default function Register({ authenticated }) {
                     hasFeedback
                 >
                     <Input
-                        placeholder="@template"
+                        placeholder="template"
                         className="rounded-lg mb-1"
                         value={telegramnick}
                         onChange={(e) => setTelegramNick(e.target.value)}
@@ -186,7 +195,7 @@ export default function Register({ authenticated }) {
                     rules={[
                         { required: true, message: 'Пожалуйста, введите пароль!' },
                         { min: 8, message: 'Пароль должен содержать не менее 8 символов!' },
-                        { pattern: /^(?=.*[0-9]).+$/, message: 'Пароль должен содержать хотя бы одну цифру!' },
+                        { pattern: /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+|~\-={}\\[\]:;"'<>,.?\/]).+$/, message: 'Пароль должен содержать хотя бы одну цифру, одну заглавную и одну строчную букву, а также один специальный символ!' },
                     ]}
 
                 >
@@ -223,7 +232,7 @@ export default function Register({ authenticated }) {
                 <ReCAPTCHA
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
-                            onChange={() => setCapcha(true)}
+                            onChange={handleCaptchaChange}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
                 <Form.Item>
                     <Button

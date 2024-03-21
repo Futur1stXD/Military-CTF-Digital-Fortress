@@ -4,7 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Login({authenticated}) {
     if (authenticated) {
-        window.location.href = "https://10.1.14.162/";
+        window.location.href = "https://ctf.astanait.edu.kz/";
     }
 
     const [email, setEmail] = useState('');
@@ -12,6 +12,7 @@ export default function Login({authenticated}) {
     const [isLoading, setLoading] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
 
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
     const [capcha, setCapcha] = useState(false);
 
     const errorMessage = (message) => {
@@ -21,15 +22,20 @@ export default function Login({authenticated}) {
         });
     };
 
+    const handleCaptchaChange = (token) => {
+        setRecaptchaToken(token);
+        setCapcha(true);
+    };
+
     const onFinish = async (values) => {
         try {
             setLoading(true);
-            const response = await fetch('https://10.1.14.162/api/auth/login', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email: values.email, password: values.password })
+                body: JSON.stringify({ email: values.email, password: values.password, recaptchaToken: recaptchaToken })
             });
 
             if (!response.ok) {
@@ -46,7 +52,7 @@ export default function Login({authenticated}) {
             }
             localStorage.setItem('token', data.token);
             setLoading(false);
-            window.location.href = "https://10.1.14.162/";
+            window.location.href = "https://ctf.astanait.edu.kz/";
         } catch (error) {
             setLoading(false);
             throw new Error(error.message);
@@ -99,7 +105,7 @@ export default function Login({authenticated}) {
                 <ReCAPTCHA
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
-                            onChange={() => setCapcha(true)}
+                            onChange={handleCaptchaChange}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
                 <Form.Item>
                     <Button

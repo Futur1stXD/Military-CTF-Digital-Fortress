@@ -25,6 +25,13 @@ const Banner = ({ isPhone, authenticated, token }) => {
         });
     };
 
+    const [recaptchaToken, setRecaptchaToken] = useState(null);
+
+    const handleCaptchaChange = (token) => {
+        setRecaptchaToken(token);
+        setCapcha(true);
+    };
+
     useEffect(() => {
         async function fetchData() {
             setIsLoading(true);
@@ -44,7 +51,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const fetchTeams = async () => {
         try {
-            const response = await fetch('https://10.1.14.162/api/team/getCTFTeams', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/getCTFTeams', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +77,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const getIsTeamJoined = async() => {
         try {
-            const response = await fetch('https://10.1.14.162/api/team/getCTF_Team_isJoined', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/getCTF_Team_isJoined', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +101,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const getTeam = async () => {
         try {
-            const response = await fetch('https://10.1.14.162/api/team/getTeam', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/getTeam', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,14 +131,14 @@ const Banner = ({ isPhone, authenticated, token }) => {
     const onFinish = async (values) => {
         try {
             setIsLoading(true);
-            const response = await fetch('https://10.1.14.162/api/team/join_ctf', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/join_ctf', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    description: values.description
+                    description: values.description, recaptchaToken: recaptchaToken
                 })
             });
 
@@ -156,12 +163,15 @@ const Banner = ({ isPhone, authenticated, token }) => {
 
     const unJoin = async() => {
         try {
-            const response = await fetch('https://10.1.14.162/api/team/unJoin_CTF_team', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/team/unJoin_CTF_team', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
                 },
+                body: JSON.stringify({
+                    recaptchaToken: recaptchaToken
+                })
             });
 
             if (!response.ok) {
@@ -232,7 +242,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                 {(authenticated && isMyTeamCreated) && <div>{isMyTeamJoined ? <div><ReCAPTCHA
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
-                            onChange={() => setCapcha(true)}
+                            onChange={handleCaptchaChange}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/><Button danger ghost size='large' disabled={!capcha} style={{color: 'red'}} onClick={unJoin}>Отменить регистрацию {title}</Button></div> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команд: {title}</Button> }
                     <Modal title="Регистрация команды" open={isModalOpen} onOk={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)}>
                         <h4>Вы регистрируете команду: {title}</h4>
@@ -244,7 +254,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                             <ReCAPTCHA
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
-                            onChange={() => setCapcha(true)}
+                            onChange={handleCaptchaChange}
                             rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/>
                             <Button type="primary" htmlType="submit" loading={isLoading} disabled={!capcha} style={{ marginTop: 10 }}>
                                 Подать заявку
