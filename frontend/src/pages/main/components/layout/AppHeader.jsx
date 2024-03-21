@@ -13,7 +13,7 @@ const headerStyle = {
 export default function AppHeader({ isPhone, authenticated }) {
   const signOut = () => {
     localStorage.removeItem('token');
-    window.location.href = "https://10.1.14.162/";
+    window.location.href = "https://ctf.astanait.edu.kz/";
   }
 
   const headerList = [
