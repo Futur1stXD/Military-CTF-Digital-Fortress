@@ -19,8 +19,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-app.get('/public/web.pdf', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web.pdf'));
+app.get('/public/web_writeup.pdf', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web_writeup.pdf'));
 });
 
 app.get('/public/OSINT.pdf', (req, res) => {

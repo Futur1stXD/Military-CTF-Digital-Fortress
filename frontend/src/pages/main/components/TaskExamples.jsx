@@ -14,7 +14,7 @@ export default function TaskExamples({isPhone}) {
             title: "Web Exploitation",
             imgUrl: "./src/img/web.jpg",
             description: "Использование уязвимостей в веб-приложениях для проникновения в систему.",
-            url: "./web.pdf"
+            url: "./web_writeup.pdf"
         },
         {
             title: "OSINT",

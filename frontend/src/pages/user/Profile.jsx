@@ -103,7 +103,6 @@ const Profile = ({ authenticated, token, isPhone}) => {
             },
         ],
     }
-    
 
     return (
         <section style={{ backgroundColor: "#121927" }}>
@@ -111,13 +110,13 @@ const Profile = ({ authenticated, token, isPhone}) => {
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
-                width: '100%',
+                width: isPhone ? '100%' : '80%',
                 minHeight: "calc(100vh - 80px - 60px)",
                 color: "white",
                 backgroundColor: "#141D2B",
-            }}>
+            }} className='md:ml-36'>
 
-                <div style={{ flex: '1', minWidth: '90%', marginRight: '2rem' }}>
+                <div style={{ flex: '1', minWidth: isPhone ? '90%' : '100%', marginRight: '2rem' }}>
                     <div>
                         <div className="">
                             <div className="relative mt-6 ml-6 flex justify-center gap-4">
@@ -164,10 +163,9 @@ const Profile = ({ authenticated, token, isPhone}) => {
                                         <Button type={isChanged ? 'primary' : 'dashed'} style={{ opacity: isChanged ? 1 : 0.5 }} disabled={isChanged}>Изменить</Button>
                                     </div>
                                 </div> :
-                                
-                                <div className="w-full md:w-5/6 p-4 mb-4">
-                                        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
-                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
+                                <div className="w-full md:w-5/6 p-4 mb-4 md:mb-0">
+                                <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
                                             <div className="mb-4 grid grid-rows-2">
                                                 <label htmlFor="name">Name:</label>
                                                 <input type="text" id="name" className="p-1" defaultValue={name} disabled />
@@ -204,7 +202,7 @@ const Profile = ({ authenticated, token, isPhone}) => {
                                         </div>
                                     </div>}
                                     <div className="w-full md:w-1/6 bg-inherit p-4 mb-4 md:mb-0">
-                                        <div className='w-full md:w-96 h-96 mb-4 md:mb-0 mt-10 md:ml-20 ml-12'>
+                                        <div className='w-full md:w-96 h-96 mb-4 md:mb-0 mt-10 md:ml-20 ml-8'>
                                             <Pie data={chartData} />
                                         </div>
                                     </div>
