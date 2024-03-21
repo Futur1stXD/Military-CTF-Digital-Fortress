@@ -31,7 +31,7 @@ export default function KeyEvents() {
             title: 'Регистрация команд',
             icon: <FormOutlined />,
             description: "24 Марта, 2024",
-            timer: 'March 24, 2024'
+            timer: 'March 24, 2024, 23:59:59'
         },
         {
             id: '2',

@@ -7,7 +7,7 @@ export default function ContentTimer({ isPhone }) {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const deadline = "March 24, 2024";
+  const deadline = "March 24, 2024, 23:59:59";
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
