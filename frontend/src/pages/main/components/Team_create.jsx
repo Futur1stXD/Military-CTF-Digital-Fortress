@@ -241,7 +241,7 @@ export default function Team({ isPhone, authenticated, token }) {
                     >
                         <Card className={isPhone ? "bg-card border-none w-5/6" : "bg-card border-none w-3/6"}>
                             <h1 className="text-white tracking-wide"><TeamOutlined style={{ paddingRight: 10 }} />{team_title}</h1>
-                            <h4 className="text-white tracking-wide"><ShrinkOutlined style={{ paddingRight: 10 }} />Для приглашения: {invite}</h4>
+                            {isPhone ? <p className="text-white tracking-wide"><ShrinkOutlined style={{ paddingRight: 10 }} />Для приглашения: {invite}</p> : <h4 className="text-white tracking-wide"><ShrinkOutlined style={{ paddingRight: 10 }} />Для приглашения: {invite}</h4>}
                             <ul className='text-white pt-4 text-lg pb-4'>
                                 {members.map((member) => (
                                     <Flex className='no-wrap' key={member}>
