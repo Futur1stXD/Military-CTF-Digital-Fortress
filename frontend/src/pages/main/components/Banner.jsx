@@ -243,7 +243,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
                             onChange={handleCaptchaChange}
-                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/><Button danger ghost size='large' disabled={!capcha} style={{color: 'red'}} onClick={unJoin}>Отменить регистрацию {title}</Button></div> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команд: {title}</Button> }
+                            rules={[{ required: true, message: 'Пожалуйста пройдите capthca!' }]}/><Button danger ghost size='large' disabled={!capcha} style={{color: 'red'}} onClick={unJoin}>Отменить регистрацию {title}</Button></div> : <Button type='primary' size='large' onClick={() => setIsModalOpen(true)}>Зарегистрировать свою команду: {title}</Button> }
                     <Modal title="Регистрация команды" open={isModalOpen} onOk={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)}>
                         <h4>Вы регистрируете команду: {title}</h4>
                         <Form name="team" onFinish={onFinish}>

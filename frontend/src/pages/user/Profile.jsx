@@ -8,10 +8,10 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
-    if (token === "" && !authenticated) {
-        window.location.href = "https://ctf.astanait.edu.kz/";
-    }
+const Profile = ({ authenticated, token, isPhone}) => {
+    // if (token === "" && !authenticated) {
+    //     window.location.href = "https://ctf.astanait.edu.kz/";
+    // }
 
     const [imageSrc, setImageSrc] = useState("setImageSrc");
     const [name, setName] = useState("");
@@ -111,29 +111,24 @@ const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
-                width: '80%',
+                width: '100%',
                 minHeight: "calc(100vh - 80px - 60px)",
                 color: "white",
                 backgroundColor: "#141D2B",
-                margin: "auto",
-                border: 'green'
             }}>
 
-                <div style={{ flex: '1', marginRight: '2rem' }}>
+                <div style={{ flex: '1', minWidth: '90%', marginRight: '2rem' }}>
                     <div>
                         <div className="">
                             <div className="relative mt-6 ml-6 flex justify-center gap-4">
                                 <UserOutlined />
                             </div>
-                    
                                 <p className='ml-6 mb-10 flex justify-center'>{nickname}</p>
-                                
                                 <div className="max-w-3xl sm:px-6 flex flex-wrap ">
                                     {isPhone ? 
-                                    <div className="w-full md:w-4/6 p-4 mb-4 ml-8 md:ml-0 md:mb-0">
-                                    
-                                        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg">
-                                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
+                                    <div className="w-full h-full md:w-5/6 p-4 mb-4 ml-12 md:ml-0 md:mb-0">
+                                    <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
                                         <div className="mb-4 grid grid-rows-2">
                                             <label htmlFor="name">Name:</label>
                                             <input type="text" id="name" className="p-1" defaultValue={name} disabled />
@@ -168,7 +163,9 @@ const Profile = ({ authenticated, token, isPhone={isPhone}}) => {
                                         </div>
                                         <Button type={isChanged ? 'primary' : 'dashed'} style={{ opacity: isChanged ? 1 : 0.5 }} disabled={isChanged}>Изменить</Button>
                                     </div>
-                                </div> : <div className="w-full md:w-5/6 p-4 mb-4 md:mb-0">
+                                </div> :
+                                
+                                <div className="w-full md:w-5/6 p-4 mb-4">
                                         <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
                                             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>
                                             <div className="mb-4 grid grid-rows-2">
