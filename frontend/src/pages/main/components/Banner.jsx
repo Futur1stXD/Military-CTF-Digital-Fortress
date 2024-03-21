@@ -262,7 +262,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                         </Form>
                     </Modal>
                 </div>}
-                <Table columns={columns} dataSource={data} className='w-5/6 md:w-2/4 md:rounded-lg md:py-5' />
+                <Table columns={columns} dataSource={data} className='w-5/6 md:w-2/4 md:rounded-lg md:py-5 bg-white' />
             </div>
             <AppFooter isPhone={isPhone} />
         </div>
