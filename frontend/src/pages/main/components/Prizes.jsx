@@ -9,7 +9,7 @@ export default function Prizes() {
             id: 0,
             title: "1 Место",
             imgUrl: "src/img/1place.png",
-            prizePool: '150.000 KZT',
+            prizePool: '350.000 KZT',
             hidden: !isPhone,
         },
         {
