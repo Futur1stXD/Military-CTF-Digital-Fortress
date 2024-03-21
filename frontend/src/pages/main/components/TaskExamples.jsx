@@ -12,7 +12,7 @@ export default function TaskExamples({isPhone}) {
         },
         {
             title: "Web Exploitation",
-            imgUrl: "./src/img/web.jpg",
+            imgUrl: "./src/img/web.png",
             description: "Использование уязвимостей в веб-приложениях для проникновения в систему.",
             url: "./web_writeup.pdf"
         },
