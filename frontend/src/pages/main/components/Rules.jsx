@@ -22,7 +22,7 @@ export default function Rules({ isPhone, authenticated }) {
                 <Typography.Title style={{ paddingTop: 10, color: 'white', fontSize: '2rem' }}>Rules</Typography.Title>
                 <Flex vertical gap={5} style={{ paddingTop: 10 }}>
                     <Typography.Text className=" text-white tracking-wide">1. Количество участников команды: допускается до 3 участников, но у каждого игрока должна быть учетная запись (совместное использование учетных записей запрещено).</Typography.Text>
-                    <Typography.Text className=" text-white tracking-wide">2. Формат флага: aitumilitaryctf`{}`.</Typography.Text>
+                    <Typography.Text className="text-white tracking-wide">2. Формат флага: aitumilitaryctf{'{}'}.</Typography.Text>
                     <Typography.Text className=" text-white tracking-wide">3. Честная игра: Придерживайтесь всех правил.</Typography.Text>
                     <Typography.Text className=" text-white tracking-wide">4. Уважительное поведение: Поддерживайте уважение и вежливость по отношению ко всем.</Typography.Text>
                     <Typography.Text className=" text-white tracking-wide">5. Не делиться: Не делитесь флагами, решениями и не размещайте их в Интернете.</Typography.Text>

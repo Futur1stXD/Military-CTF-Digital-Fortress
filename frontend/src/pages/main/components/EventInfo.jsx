@@ -69,7 +69,7 @@ export default function EventInfo({ isPhone }) {
                                 <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                                 <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
                                 <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
-                                <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
+                                <Typography.Text strong><a href="/rules"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                             </Flex>
                         </Card>
                     </Flex>
@@ -112,7 +112,7 @@ export default function EventInfo({ isPhone }) {
                                 <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                                 <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
                                 <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
-                                <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
+                                <Typography.Text strong><a href="/rules"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                             </Flex>
                         </Card>
                     </Flex>
@@ -194,14 +194,11 @@ export default function EventInfo({ isPhone }) {
                             <Typography.Text style={{ color: 'gray' }}>(EXPO Международный выставочный центр)</Typography.Text>
                             <Typography.Text>Время проведения: 10:00 - 17:00</Typography.Text>
                             <Typography.Text strong><a href="/ctf"><CheckCircleOutlined style={{ paddingRight: 5 }} />Регистрация команды на CTF</a></Typography.Text>
-                            <Typography.Text strong><a href="#"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
+                            <Typography.Text strong><a href="/rules"><ExclamationCircleOutlined style={{ paddingRight: 5 }} />Правила</a></Typography.Text>
                         </Flex>
                     </Flex>
                 </Card>)
             }
         </div>
-
-        // <Card style={{ width: '80%', display: 'flex', margin: 'auto', height: 600, marginBottom: 20 }}>
-        // </Card>
     );
 };
