@@ -27,7 +27,7 @@ export default function ContentTimer({ isPhone }) {
   return (
     <div className="timer-container" style={{ justifyContent: 'center', margin: 'auto', display: 'flex', width: isPhone ? '70%' : '100%', height: isPhone && '60%' }}>
       <div className="timer">
-        <Typography>Регистрация закрыта</Typography>
+        <Typography.Title level={3}>Регистрация закрыта</Typography.Title>
 {/*         <div className="col-4">
           <div className="box">
             <p id="day">{days < 10 ? "0" + days : days}</p>
