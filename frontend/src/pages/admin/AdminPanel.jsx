@@ -285,7 +285,15 @@ export default function AdminPanel({ authenticated, token }) {
                 },
             });
             if (response.ok) {
-                
+                const blob = await response.blob(); // Получить содержимое файла в виде Blob
+                const url = window.URL.createObjectURL(blob); // Создать URL для Blob
+                const a = document.createElement('a'); // Создать ссылку для скачивания
+                a.href = url; // Установить URL для ссылки
+                a.download = 'ctf_teams.csv'; // Установить имя файла для скачивания
+                document.body.appendChild(a); // Добавить ссылку в документ
+                a.click(); // Имитировать клик по ссылке для скачивания файла
+                window.URL.revokeObjectURL(url); // Освободить ресурсы URL
+                document.body.removeChild(a); // Удалить ссылку из документа
             } else {
                 console.error('Error fetching authentication status:', response.statusText);
                 errorMessage("Ошибка при скачивании");
