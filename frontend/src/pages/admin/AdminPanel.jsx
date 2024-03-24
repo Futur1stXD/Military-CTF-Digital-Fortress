@@ -275,6 +275,27 @@ export default function AdminPanel({ authenticated, token }) {
         }
     };
 
+     const downloadCSV = async () => {
+        try {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/org/admin/downloadCTFTeamsCSV', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+            });
+            if (response.ok) {
+                
+            } else {
+                console.error('Error fetching authentication status:', response.statusText);
+                errorMessage("Ошибка при скачивании");
+            }
+        } catch (error) {
+            console.error('Error fetching authentication status:', error.message);
+            errorMessage("Ошибка при скачивании");
+        }
+    };
+
     return (
         <div>
             {contextHolder}
@@ -353,7 +374,7 @@ export default function AdminPanel({ authenticated, token }) {
                 </table>
             </div>
             <div className="table-wrapper">
-                <h2>Таблица CTF Команд</h2>
+                <h2>Таблица CTF Команд</h2><Button type="primary" onClick={downloadCSV}>Скачать</Button>
                 <table>
                     <thead>
                         <tr>
