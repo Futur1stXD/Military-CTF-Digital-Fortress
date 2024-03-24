@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Tag, Mentions, message, Button, Modal, Form, Input } from 'antd';
+import { Table, Tag, Mentions, message, Button, Modal, Form, Input, Typography } from 'antd';
 import AppHeader from './layout/AppHeader';
 import AppFooter from './layout/AppFooter';
 import ReCAPTCHA from 'react-google-recaptcha'
@@ -238,7 +238,7 @@ const Banner = ({ isPhone, authenticated, token }) => {
                 justifyContent: "center",
             }} >
                 <img src="src/img/ctf-digital.png" alt="" className="md:w-1/4 md:h-1/4 w-5/6 h-/6 md:pt-12 py-5" />
-                {(!authenticated && !isMyTeamCreated) && <h5 style={{color: 'red'}}>Для регистрации вам нужно авторизоваться и создать команду!</h5>}
+{/*                 {(!authenticated && !isMyTeamCreated) && <h5 style={{color: 'red'}}>Для регистрации вам нужно авторизоваться и создать команду!</h5>}
                 {(authenticated && isMyTeamCreated) && <div>{isMyTeamJoined ? <div><ReCAPTCHA
                             sitekey="6Ld3WJ8pAAAAAB6gN8y795q2Izr_CHkZB-pSPiF_"
                             className='mt-4 ml-2'
@@ -261,7 +261,8 @@ const Banner = ({ isPhone, authenticated, token }) => {
                             </Button>
                         </Form>
                     </Modal>
-                </div>}
+                </div>} */}
+                <Typography.Title level={4} style={{color: "white"}}>Регистрация закрыта</Typography.Title>
                 <Table columns={columns} dataSource={data} className='w-5/6 md:w-2/4 md:rounded-lg md:py-5 bg-white' />
             </div>
             <AppFooter isPhone={isPhone} />
