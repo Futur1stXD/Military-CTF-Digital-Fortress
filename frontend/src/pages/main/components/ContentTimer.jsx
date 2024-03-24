@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Typography } from "antd";
 
 export default function ContentTimer({ isPhone }) {
   const [days, setDays] = useState(0);
@@ -26,7 +27,8 @@ export default function ContentTimer({ isPhone }) {
   return (
     <div className="timer-container" style={{ justifyContent: 'center', margin: 'auto', display: 'flex', width: isPhone ? '70%' : '100%', height: isPhone && '60%' }}>
       <div className="timer">
-        <div className="col-4">
+        <Typography>Регистрация закрыта</Typography>
+{/*         <div className="col-4">
           <div className="box">
             <p id="day">{days < 10 ? "0" + days : days}</p>
             <span className="text">Days</span>
@@ -49,7 +51,7 @@ export default function ContentTimer({ isPhone }) {
             <p id="second">{seconds < 10 ? "0" + seconds : seconds}</p>
             <span className="text">Seconds</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
