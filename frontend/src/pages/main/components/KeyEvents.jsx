@@ -3,7 +3,7 @@ import { Typography, Steps } from 'antd'
 import { LoadingOutlined, FlagOutlined, SketchOutlined, ClockCircleOutlined, FormOutlined } from '@ant-design/icons';
 
 export default function KeyEvents() {
-    const [currentStep, setCurrentStep] = useState(0);
+    const [currentStep, setCurrentStep] = useState(1);
 
     useEffect(() => {
         const interval = setInterval(() => {
