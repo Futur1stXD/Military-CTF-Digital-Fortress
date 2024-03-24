@@ -358,7 +358,10 @@ export default function AdminPanel({ authenticated, token }) {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>ID Команды</th>
+                            <th>Название Команды</th>
+                            <th>Лидер</th>
+                            <th>2 участник</th>
+                            <th>3 участник</th>
                             <th>Дескрипшн</th>
                             <th>Статус</th>
                             <th>Команды Админа</th>
@@ -368,7 +371,10 @@ export default function AdminPanel({ authenticated, token }) {
                         {ctf_teams.map(ctf_team => (
                             <tr key={ctf_team.id}>
                                 <td>{ctf_team.id}</td>
-                                <td>{ctf_team.teamid}</td>
+                                <td>{ctf_team.team}</td>
+                                <td>{ctf_team.users[0].nickname !== null ? ctf_team.users[0].nickname : "нету"}</td>
+                                <td>{ctf_team.users[1].nickname !== null ? ctf_team.users[1].nickname : "нету"}</td>
+                                <td>{ctf_team.users[2].nickname !== null ? ctf_team.users[1].nickname : "нету"}</td>
                                 <td>{ctf_team.description !== null ? ctf_team.description : "нету"}</td>
                                 <td>{ctf_team.status}</td>
                                 <td>
