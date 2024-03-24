@@ -372,9 +372,9 @@ export default function AdminPanel({ authenticated, token }) {
                             <tr key={ctf_team.id}>
                                 <td>{ctf_team.id}</td>
                                 <td>{ctf_team.team}</td>
-                                <td>{ctf_team.users[0].nickname !== null ? ctf_team.users[0].nickname : "нету"}</td>
-                                <td>{ctf_team.users[1].nickname !== null ? ctf_team.users[1].nickname : "нету"}</td>
-                                <td>{ctf_team.users[2].nickname !== null ? ctf_team.users[1].nickname : "нету"}</td>
+                                <td>{ctf_team.users[0] !== null ? ctf_team.users[0] : "нету"}</td>
+                                <td>{ctf_team.users[1] !== null ? ctf_team.users[1] : "нету"}</td>
+                                <td>{ctf_team.users[2] !== null ? ctf_team.users[2] : "нету"}</td>
                                 <td>{ctf_team.description !== null ? ctf_team.description : "нету"}</td>
                                 <td>{ctf_team.status}</td>
                                 <td>
