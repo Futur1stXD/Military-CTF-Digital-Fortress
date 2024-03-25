@@ -277,7 +277,7 @@ export default function AdminPanel({ authenticated, token }) {
 
      const downloadCSV = async () => {
         try {
-            const response = await fetch('https://ctf.astanait.edu.kz/api/org/admin/downloadCTFTeamsCSV', {
+            const response = await fetch('https://ctf.astanait.edu.kz/api/org/admin/downloadCTFTeamsExcel', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
