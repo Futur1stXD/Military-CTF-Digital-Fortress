@@ -6,18 +6,18 @@ export default function KeyEvents() {
     const [currentStep, setCurrentStep] = useState(0);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const currentDate = new Date();
-            const nextStepIndex = items.findIndex(item => {
-                const itemDate = new Date(item.timer);
-                return itemDate < currentDate;
-            });
-            if (nextStepIndex !== -1) {
-                setCurrentStep(nextStepIndex);
-            }
-        }, 5000);
-        return () => clearInterval(interval)
-    })
+    const interval = setInterval(() => {
+        const currentDate = new Date();
+        const nextStepIndex = items.findIndex(item => {
+            const itemDate = new Date(item.timer);
+            return itemDate < currentDate;
+        });
+        if (nextStepIndex !== -1) {
+            setCurrentStep(nextStepIndex);
+        }
+    }, 5000);
+    return () => clearInterval(interval);
+}, []);
 
     const items = [
         {
