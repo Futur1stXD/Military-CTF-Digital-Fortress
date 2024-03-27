@@ -17,7 +17,7 @@ export default function KeyEvents() {
             if (nextStepIndex !== -1) {
                 setCurrentStep(nextStepIndex);
             }
-        }, 5000);
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 
