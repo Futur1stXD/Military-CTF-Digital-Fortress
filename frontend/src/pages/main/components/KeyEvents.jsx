@@ -3,7 +3,7 @@ import { Typography, Steps } from 'antd'
 import { LoadingOutlined, FlagOutlined, SketchOutlined, ClockCircleOutlined, FormOutlined } from '@ant-design/icons';
 
 export default function KeyEvents() {
-    const [currentStep, setCurrentStep] = useState(1);
+    const [currentStep, setCurrentStep] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -24,35 +24,35 @@ export default function KeyEvents() {
             id: '0',
             title: 'Объявление CTF',
             description: "",
-            timer: 'March 15, 2024'
+            timer: new Date('March 15, 2024')
         },
         {
             id: '1',
             title: 'Регистрация команд',
             icon: <FormOutlined />,
             description: "До 24 Марта, 2024",
-            timer: 'March 23, 2024, 23:59:59'
+            timer: new Date('March 23, 2024, 23:59:59')
         },
         {
             id: '2',
             title: 'Check-In',
             description: "5 Апреля, 10:00-11:00",
             icon: <ClockCircleOutlined />,
-            timer: 'April 5, 2024, 10:00'
+            timer: new Date('April 5, 2024, 10:00:00')
         },
         {
             id: '3',
             title: 'Начало CTF',
             description: "5 Апреля, 11:00-16:00",
             icon: <FlagOutlined />,
-            timer: 'April 5, 2024, 11:00'
+            timer: new Date('April 5, 2024, 11:00:00')
         },
         {
             id: '4',
             title: 'Награждение',
             description: "5 Апреля, 16:00-17:00",
             icon: <SketchOutlined />,
-            timer: 'April 5, 2024, 16:01'
+            timer: new Date('April 5, 2024, 16:01:00')
         },
     ];
 
